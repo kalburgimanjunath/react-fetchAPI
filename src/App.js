@@ -11,13 +11,12 @@ function App() {
       // 4. Setting *photos* to the image url that we received from the response above
       .then((data) => setphotos(data));
   }, []);
-  console.log(photos);
   return (
     <div className="App">
       {/* 5. Returning an img element for each url, again with the value of our src set to the image url */}
       {photos &&
         photos.map((item) => (
-          <a href={item.url}>
+          <a keys={item.id} href={item.url}>
             <img width={'200px'} height={'200px'} src={item.thumbnailUrl}></img>
           </a>
         ))}
